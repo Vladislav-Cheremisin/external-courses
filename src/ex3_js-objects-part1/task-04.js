@@ -1,5 +1,6 @@
 const checkOrCreateProp = (str, obj) => {
-  const newObj = Object.assign(obj);
+  const newObj = {};
+  Object.assign(newObj, obj);
   if (Object.keys(obj).includes(str)) {
     return newObj;
   }
