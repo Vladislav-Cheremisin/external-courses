@@ -1,6 +1,5 @@
 const copyObject = (obj) => {
-  const resultObj = {};
-  Object.assign(resultObj, obj);
+  const resultObj = { ...obj };
   return resultObj;
 };
 
