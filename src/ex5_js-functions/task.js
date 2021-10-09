@@ -1,21 +1,26 @@
-const Calculator = () => {
+const createCalc = () => {
   let result = 0;
-  const calculator = {
+
+  return {
     add(operand = 0) {
       result += operand;
-      return calculator.add;
+
+      return this.add;
     },
     subtract(operand = 0) {
       result -= operand;
-      return calculator.subtract;
+
+      return this.subtract;
     },
     divide(operand = 1) {
       result /= operand;
-      return calculator.divide;
+
+      return this.divide;
     },
     multiply(operand = 1) {
       result *= operand;
-      return calculator.multiply;
+
+      return this.multiply;
     },
     getResult() {
       return result;
@@ -24,10 +29,8 @@ const Calculator = () => {
       result = 0;
     },
   };
-
-  return calculator;
 };
 
-const calculator = Calculator();
+const calculator = createCalc();
 
 module.exports = calculator;
