@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #9C27B0;
+}
+
+.first-item,
+.second-item,
+.third-item {
+  width: 300px;
+  height: 300px;
+  background-color: #7C4DFF;
+}
+
+/* Styles for task */
+
+.first-item {border: 5px solid #7B1FA2;}
+
+.second-item {outline: 5px solid #7B1FA2;}
+
+.third-item {box-shadow: 0 0 0 5px #7B1FA2}
