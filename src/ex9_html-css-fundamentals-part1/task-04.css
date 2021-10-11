@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.task-block {
+  width: 400px;
+  height: 200px;
+  background-color: rgb(96, 184, 141);
+  box-shadow: 5px 5px rgb(144, 205, 175), 10px 10px rgb(191, 227, 209);
+}
