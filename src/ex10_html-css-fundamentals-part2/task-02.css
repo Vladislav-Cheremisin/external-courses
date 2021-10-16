@@ -1,0 +1,7 @@
+.task-form fieldset{padding: 20px;}
+
+.task-form input,
+.task-form select,
+.task-form fieldset:last-of-type {margin-bottom: 15px;}
+
+.multiple-list {margin-top: 15px;}
