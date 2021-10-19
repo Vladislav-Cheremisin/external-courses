@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 02</title>
+  <link rel="stylesheet" href="task-02.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="task-form">
+      <h1>Task Form</h1>
+      <br>
+      <form action="http://httpbin.org/post" method="post" class="task-form__form">
+        <div class="task-form__input-wrapper">
+          <input type="text" name="first-name" class="task-form__input" id="firstName" placeholder="First Name" required>
+          <label for="firstName" class="task-form__label">First Name</label>
+        </div>
+        <div class="task-form__input-wrapper">
+          <input type="text" name="surname" class="task-form__input" id="surname" placeholder="Surname" required>
+          <label class="task-form__label">Surname</label>
+        </div>
+        <div class="task-form__textarea-wrapper">
+          <textarea name="about" class="task-form__textarea" id="infoAbout" placeholder="Info about yourself" required></textarea>
+          <label for="surname" class="task-form__label">Info about yourself</label>
+        </div>
+        <input type="submit" class="task-form__btn-submit" value="Send information">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
