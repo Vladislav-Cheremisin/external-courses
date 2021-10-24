@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {box-sizing: border-box;}
 
 body {
@@ -7,6 +9,9 @@ body {
 
 .wrapper {
   display: grid;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
   grid-template-columns: 1fr;
   grid-template-rows: 55px 1fr 55px;
 }
@@ -14,9 +19,108 @@ body {
 .header,
 .footer {background-color: #0067A3;}
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .main {
   display: flex;
-  width: 100%;
-  height: calc(100vh - 110px);
-  background-color: #0079BF
+  overflow-x: scroll;
+  background-color: #0079BF;
 }
+
+.header__logo {
+  margin-left: 14px;
+  display: flex;
+  align-self: center;
+  width: 384px;
+  height: 45px;
+  color: #FFFFFF;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+.header__logo span {
+  margin-top: 5px;
+  margin-left: 8px;
+}
+
+.header__nav {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  height: 45px;
+}
+
+.user-profile {
+  display: flex;
+  width: 64px;
+}
+
+.user-profile__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FFF;
+}
+
+.user-profile__pop-up {
+  margin-left: 6px;
+  align-self: center;
+  width: 12px;
+  height: fit-content;
+}
+
+.user-profile__pop-up:hover {cursor: pointer}
+
+.create-list-btn {
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+  width: 181px;
+  height: 33px;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: #FFF;
+  transition: 0.5s all ease;
+}
+
+.create-list-btn__plus {
+  position: relative;
+  margin: 0px 13px 1px 9px;
+  display: flex;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #000;
+  transition: 0.5s all ease;
+}
+
+.create-list-btn__plus::before,
+.create-list-btn__plus::after {
+  position: absolute;
+  top: 4px;
+  left: 9px;
+  content: "";
+  width: 4px;
+  height: 14px;
+  border-radius: 2px;
+  background-color: #FFF;
+  transition: 0.5s all ease;
+}
+
+.create-list-btn__plus::after {transform: rotate(90deg);}
+
+.create-list-btn:hover {
+  color: #FFF;
+  cursor: pointer;
+  background-color: #000;
+}
+
+.create-list-btn:hover .create-list-btn__plus {background-color: white;}
+
+.create-list-btn:hover .create-list-btn__plus::after,
+.create-list-btn:hover .create-list-btn__plus::before {background-color: #000;}
