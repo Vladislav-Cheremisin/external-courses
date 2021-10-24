@@ -124,3 +124,25 @@ body {
 
 .create-list-btn:hover .create-list-btn__plus::after,
 .create-list-btn:hover .create-list-btn__plus::before {background-color: #000;}
+
+.footer {
+  display: flex;
+  color: #FFF;
+  font-size: 18px;
+  justify-content: space-between;
+}
+
+.footer__counters-wrapper {
+  margin-left: 67px;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 332px;
+  height: 100%;
+}
+
+.footer__copyrights {
+  margin-right: 24px;
+  align-self: center;
+}
