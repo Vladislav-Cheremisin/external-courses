@@ -16,8 +16,7 @@ body {
   border-radius: 50%;
 }
 
-.task-block-1,
-.task-block-2 {
+.task-block-1, .task-block-2 {
   overflow: hidden;
 }
 
@@ -27,4 +26,6 @@ body {
   border-bottom-left-radius: 70%;
 }
 
-.task-block-2 {transform: rotate(-45deg) translateY(22%)}
+.task-block-2 {
+  transform: rotate(-45deg) translateY(22%)
+}

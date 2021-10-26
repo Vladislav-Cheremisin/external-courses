@@ -1,107 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 02</title>
-  <link rel="stylesheet" href="task-02.css">
-</head>
-<body>
-  <form action="http://httpbin.org/post" method="post" class="task-form">
-    <fieldset>
-      <legend>Personal data</legend>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 02</title>
+    <link rel="stylesheet" href="task-02.css" />
+  </head>
+  <body>
+    <form action="http://httpbin.org/post" method="post" class="task-form">
+      <fieldset>
+        <legend>Personal data</legend>
 
-      <label for="surname">Surname</label>
-      <input type="text" name="surname" id="surname">
-      <br>
+        <label for="surname">Surname</label>
+        <input type="text" name="surname" id="surname" />
+        <br />
 
-      <label for="firstName">First Name</label>
-      <input type="text" name="first-name" id="firstName">
-      <br>
+        <label for="firstName">First Name</label>
+        <input type="text" name="first-name" id="firstName" />
+        <br />
 
-      <label for="middleName">Middle Name</label>
-      <input type="text" name="middle-name" id="middleName">
-      <br>
+        <label for="middleName">Middle Name</label>
+        <input type="text" name="middle-name" id="middleName" />
+        <br />
 
-      <label>You are</label>
-      <label>
-        <input type="radio" name="gender" value="male">male
-      </label>
-      <label>
-        <input type="radio" name="gender" value="female">female
-      </label>
-      <br>
+        <label>You are</label>
+        <label> <input type="radio" name="gender" value="male" />male </label>
+        <label>
+          <input type="radio" name="gender" value="female" />female
+        </label>
+        <br />
 
-      <label for="age">Age</label>
-      <input type="number" min="18" max="101" id="age">
-      <br>
+        <label for="age">Age</label>
+        <input type="number" min="18" max="101" id="age" />
+        <br />
 
-      <label for="country">Country of Residence</label>
-      <select name="country" id="country">
-        <option value="Russian Federation">Russian Federation</option>
-        <option value="United Kingdom">United Kingdom</option>
-        <option value="USA">USA</option>
-      </select>
-      <br>
+        <label for="country">Country of Residence</label>
+        <select name="country" id="country">
+          <option value="Russian Federation">Russian Federation</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="USA">USA</option>
+        </select>
+        <br />
 
-      <label>City</label>
-      <label>
-        <input type="checkbox" name="city" value="Ryazan">Ryazan
-      </label>
-      <label>
-        <input type="checkbox" name="city" value="Moscow">Moscow
-      </label>
-      <br>
+        <label>City</label>
+        <label>
+          <input type="checkbox" name="city" value="Ryazan" />Ryazan
+        </label>
+        <label>
+          <input type="checkbox" name="city" value="Moscow" />Moscow
+        </label>
+        <br />
 
-      <label for="file">Photography</label>
-      <input type="file" name="file" id="file">
-      <hr>
+        <label for="file">Photography</label>
+        <input type="file" name="file" id="file" />
+        <hr />
 
-      <label for="multipleList">Title</label>
-      <select name="multiple-list" id="multipleList" multiple size="8" class="multiple-list">
-        <optgroup label="Technologies">
-          <option value="Web Master">Web Master</option>
-          <option value="Database Administrator">Database Administrator</option>
-          <option value="Computer-aided design">Computer-aided design</option>
-        </optgroup>
-        <optgroup label="Finance">
-          <option value="Economic Planning">Economic Planning</option>
-          <option value="Management accounting">Management accounting</option>
-          <option value="Budgeting and planning">Budgeting and planning</option>
-        </optgroup>
-      </select>
-      <br>
+        <label for="multipleList">Title</label>
+        <select
+          name="multiple-list"
+          id="multipleList"
+          multiple
+          size="8"
+          class="multiple-list"
+        >
+          <optgroup label="Technologies">
+            <option value="Web Master">Web Master</option>
+            <option value="Database Administrator">
+              Database Administrator
+            </option>
+            <option value="Computer-aided design">Computer-aided design</option>
+          </optgroup>
+          <optgroup label="Finance">
+            <option value="Economic Planning">Economic Planning</option>
+            <option value="Management accounting">Management accounting</option>
+            <option value="Budgeting and planning">
+              Budgeting and planning
+            </option>
+          </optgroup>
+        </select>
+        <br />
 
-      <label for="salary">Salary</label>
-      <input type="range" min="0" max="100000" step="1000" value="50000" name="salary" id="salary">
-      <br>
+        <label for="salary">Salary</label>
+        <input
+          type="range"
+          min="0"
+          max="100000"
+          step="1000"
+          value="50000"
+          name="salary"
+          id="salary"
+        />
+        <br />
 
-      <textarea name="about" id="infoAbout" cols="45" rows="9" placeholder="Tell us about yourself..."></textarea>
-    </fieldset>
+        <textarea
+          name="about"
+          id="infoAbout"
+          cols="45"
+          rows="9"
+          placeholder="Tell us about yourself..."
+        ></textarea>
+      </fieldset>
 
-    <fieldset>
-      <legend>Contact Information</legend>
+      <fieldset>
+        <legend>Contact Information</legend>
 
-      <label for="site">Site</label>
-      <input type="text" name="site" id="site">
-      <br>
+        <label for="site">Site</label>
+        <input type="text" name="site" id="site" />
+        <br />
 
-      <label for="email">Email</label>
-      <input type="text" name="email" id="email">
-      <br>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+        <br />
 
-      <label for="phone">Phone</label>
-      <input type="text" name="phone" id="phone">
-      <br>
-    </fieldset>
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" />
+        <br />
+      </fieldset>
 
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <br>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+      <br />
 
-    <input type="submit" name="submit" value="Отправить">
-    <input type="reset" name="reset" value="Сбросить">
-  </form>
-</body>
+      <input type="submit" name="submit" value="Отправить" />
+      <input type="reset" name="reset" value="Сбросить" />
+    </form>
+  </body>
 </html>
