@@ -35,8 +35,7 @@ body {
   background-color: rgba(0, 0, 0, 1);
 }
 
-.task-loader__first-wrapper,
-.task-loader__second-wrapper {
+.task-loader__first-wrapper, .task-loader__second-wrapper {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -45,11 +44,15 @@ body {
   border-radius: 50%;
 }
 
-.task-loader__first-wrapper {animation: rotate 18s linear infinite;}
-.task-loader__second-wrapper {animation: rotate 1.5s linear infinite;}
+.task-loader__first-wrapper {
+  animation: rotate 18s linear infinite;
+}
 
-.task-loader__min-arrow,
-.task-loader__sec-arrow {
+.task-loader__second-wrapper {
+  animation: rotate 1.5s linear infinite;
+}
+
+.task-loader__min-arrow, .task-loader__sec-arrow {
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
   background-color: rgba(0, 0, 0, 0.7);
