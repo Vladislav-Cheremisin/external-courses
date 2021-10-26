@@ -25,8 +25,9 @@ body {
 }
 
 .main {
+  padding: 19px 0px 19px 19px;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   background-color: #0079BF;
 }
 
@@ -72,9 +73,13 @@ body {
   align-self: center;
   width: 12px;
   height: fit-content;
+  transition: 0.5s all ease;
 }
 
-.user-profile__pop-up:hover {cursor: pointer}
+.user-profile__pop-up:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
 
 .create-list-btn {
   margin-left: 6px;
@@ -139,10 +144,97 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 332px;
-  height: 100%;
 }
 
 .footer__copyrights {
   margin-right: 24px;
   align-self: center;
+}
+
+.kanban-list {
+  position: relative;
+  padding: 12px 0px 8px 0px;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 282px;
+  min-width: 282px;
+  max-height: calc(100% - 13px);
+  height: fit-content;
+  border-radius: 10px;
+  background-color: #EBECF0;
+}
+
+.kanban-list__header {
+  align-self: flex-start;
+  margin: 0px 0px 12px 12px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.kanban-list__pop-up-btn {
+  position: absolute;
+  right: 14px;
+  font-size: 18px;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__pop-up-btn:hover {
+  cursor: pointer;
+  color: #5E6C84;
+}
+
+.kanban-list__task-wrapper {
+  width: calc(100% - 24px);
+  overflow-y: auto;
+}
+
+.kanban-list__task {
+  padding: 7px 8px;
+  margin: 0px;
+  margin-bottom: 15.3px;
+  font-size: 18px;
+  line-height: 21px;
+  border-radius: 5px;
+  background-color: #FFF;
+}
+
+.kanban-list .kanban-list__task:last-of-type {margin-bottom: 17px;}
+
+.kanban-list__add-card-btn {
+  padding-left: 20px;
+  position: relative;
+  font-size: 18px;
+  color: #5E6C84;
+}
+
+.kanban-list__add-card-btn:before {
+  position: absolute;
+  top: -5px;
+  left: 2px;
+  content: "+";
+  font-size: 26px;
+}
+
+.kanban-list__add-card-btn:hover {cursor: pointer}
+
+@media screen and (max-width: 720px) {
+  .wrapper {grid-template-rows: 110px 1fr 110px;}
+
+  .header,
+  .footer {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer__counters-wrapper {margin: 0px;}
+
+  .footer__copyrights,
+  .header__logo {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%
+  }
 }
