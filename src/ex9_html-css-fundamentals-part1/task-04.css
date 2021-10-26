@@ -11,9 +11,7 @@ body {
   height: 100vh;
 }
 
-.task-block,
-.task-block-second,
-.task-block-third {
+.task-block, .task-block-second, .task-block-third {
   position: relative;
   width: 400px;
   height: 200px;
@@ -22,12 +20,13 @@ body {
 
 /* first solution */
 
-.task-block {box-shadow: 5px 5px rgb(144, 205, 175), 10px 10px rgb(191, 227, 209);}
+.task-block {
+  box-shadow: 5px 5px rgb(144, 205, 175), 10px 10px rgb(191, 227, 209);
+}
 
 /* second solution */
 
-.task-block-second::before,
-.task-block-second::after {
+.task-block-second::before, .task-block-second::after {
   position: absolute;
   content: "";
   width: 100%;
