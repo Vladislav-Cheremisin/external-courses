@@ -7,5 +7,50 @@
     <title>Kanban</title>
     <link rel="stylesheet" href="kanban.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <a href="kanban.html" class="header__logo">
+          <img src="assets/kanban-logo.png" alt="kanban" />
+          <span>Awesome Kanban Board</span>
+        </a>
+        <nav class="header__nav">
+          <div class="create-list-btn">
+            <div class="create-list-btn__plus"></div>
+            <span>Create new list</span>
+          </div>
+          <div class="user-profile">
+            <img
+              src="assets/user-avatar.png"
+              alt="avatar"
+              class="user-profile__avatar"
+            />
+            <img
+              src="assets/popup-icon.png"
+              alt="open popup"
+              class="user-profile__pop-up"
+            />
+          </div>
+        </nav>
+      </header>
+      <main class="main"></main>
+      <footer class="footer">
+        <div class="footer__counters-wrapper">
+          <span class="footer__counter"
+            >Active tasks:
+            <span class="footer__counter_active">&lt;N&gt;</span></span
+          >
+          <span class="footer__counter"
+            >Finished tasks:
+            <span class="footer__counter_finished">&lt;M&gt;</span></span
+          >
+        </div>
+        <span class="footer__copyrights"
+          >Kanban board by
+          <span class="footer__copyright_name">&lt;NAME&gt;</span>,
+          <span class="footer__copyright_year">&lt;YEAR&gt;</span></span
+        >
+      </footer>
+    </div>
+  </body>
 </html>
