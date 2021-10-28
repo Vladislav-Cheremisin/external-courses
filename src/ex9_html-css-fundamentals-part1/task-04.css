@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.task-block, .task-block-second, .task-block-third {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background-color: rgb(96, 184, 141);
+}
+
+/* first solution */
+
+.task-block {
+  box-shadow: 5px 5px rgb(144, 205, 175), 10px 10px rgb(191, 227, 209);
+}
+
+/* second solution */
+
+.task-block-second::before, .task-block-second::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.task-block-second::after {
+  left: 5px;
+  top: 5px;
+  background-color: rgb(144, 205, 175);
+}
+
+.task-block-second::before {
+  left: 10px;
+  top: 10px;
+  background-color: rgb(191, 227, 209);
+}
+
+/* third solution */
+
+.task-block-third::after {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgb(144, 205, 175);
+  box-shadow: 5px 5px rgb(191, 227, 209);
+}
