@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-img {
+  height: 50vh;
+  border-radius: 50%;
+}
+
+.task-block-1, .task-block-2 {
+  overflow: hidden;
+}
+
+.task-block-1 {
+  transform: rotate(45deg);
+  border-top-right-radius: 70%;
+  border-bottom-left-radius: 70%;
+}
+
+.task-block-2 {
+  transform: rotate(-45deg) translateY(22%)
+}
