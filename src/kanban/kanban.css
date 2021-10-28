@@ -59,8 +59,13 @@ body {
 }
 
 .user-profile {
+  position: relative;
   display: flex;
   width: 64px;
+}
+
+.user-profile:hover {
+  cursor: pointer;
 }
 
 .user-profile__avatar {
@@ -70,7 +75,7 @@ body {
   background-color: #FFF;
 }
 
-.user-profile__pop-up {
+.user-profile__pop-up-btn {
   margin-left: 6px;
   align-self: center;
   width: 12px;
@@ -78,8 +83,49 @@ body {
   transition: 0.5s all ease;
 }
 
-.user-profile__pop-up:hover {
-  cursor: pointer;
+.user-profile__pop-up-btn_active {
+  transform: rotate(180deg);
+}
+
+.user-profile__pop-up {
+  position: absolute;
+  top: 50px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: #FFF;
+}
+
+.user-profile__pop-up a {
+  padding: 10px 0px;
+  font-size: 18px;
+  text-align: center;
+  color: #000;
+  width: 100%;
+  border-bottom: 2px solid #5E6C84;
+  text-decoration: none;
+}
+
+.user-profile__pop-up a:hover {
+  background-color: #e4e4e4;
+}
+
+.user-profile__pop-up a:active {
+  background-color: #b6b6b6;
+}
+
+.user-profile__pop-up a:first-child {
+  border-radius: 10px 10px 0px 0px;
+}
+.user-profile a:last-child {
+  border-bottom: none;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.user-profile:hover .user-profile__pop-up-btn {
   opacity: 0.7;
 }
 
@@ -111,8 +157,8 @@ body {
   top: 4px;
   left: 9px;
   content: "";
-  width: 4px;
-  height: 14px;
+  width: 3px;
+  height: 13px;
   border-radius: 2px;
   background-color: #FFF;
   transition: 0.5s all ease;
@@ -244,6 +290,6 @@ body {
     margin: 0px;
     display: flex;
     justify-content: center;
-    width: 100%
+    width: 100%;
   }
 }
