@@ -120,6 +120,7 @@ body {
 .user-profile__pop-up a:first-child {
   border-radius: 10px 10px 0px 0px;
 }
+
 .user-profile a:last-child {
   border-bottom: none;
   border-radius: 0px 0px 10px 10px;
@@ -157,8 +158,8 @@ body {
   top: 4px;
   left: 9px;
   content: "";
-  width: 3px;
-  height: 13px;
+  width: 4px;
+  height: 14px;
   border-radius: 2px;
   background-color: #FFF;
   transition: 0.5s all ease;
