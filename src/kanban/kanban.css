@@ -239,25 +239,31 @@ body {
 
 .kanban-list__pop-up-btn {
   position: absolute;
-  right: 14px;
+  right: 8px;
   font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: transparent;
   transition: 0.5s all ease;
 }
 
 .kanban-list__pop-up-btn:hover {
   cursor: pointer;
-  color: #5E6C84;
+  opacity: 0.3;
 }
 
 .kanban-list__task-wrapper {
+  padding: 0;
+  margin: 0;
   width: calc(100% - 24px);
+  list-style: none;
   overflow-y: auto;
 }
 
 .kanban-list__task {
   padding: 7px 8px;
-  margin: 0px;
-  margin-bottom: 15.3px;
+  margin: 0;
+  margin-bottom: 16px;
   font-size: 18px;
   line-height: 21px;
   border-radius: 5px;
@@ -269,10 +275,21 @@ body {
 }
 
 .kanban-list__add-card-btn {
+  margin: 0px 0px 0px 11px;
   padding-left: 20px;
   position: relative;
+  display: flex;
+  align-self: flex-start;
   font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: transparent;
   color: #5E6C84;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__add-card-btn:hover {
+  opacity: 0.5;
 }
 
 .kanban-list__add-card-btn:before {
@@ -299,10 +316,10 @@ body {
     flex-wrap: wrap;
   }
   .footer__counters-wrapper {
-    margin: 0px;
+    margin: 0;
   }
   .footer__copyrights, .header__logo {
-    margin: 0px;
+    margin: 0;
     display: flex;
     justify-content: center;
     width: 100%;
