@@ -270,7 +270,7 @@ body {
   background-color: #FFF;
 }
 
-.kanban-list__task-input {
+.kanban-list__task-input, .kanban-list__dropdown-item {
   margin-bottom: 16px;
   padding: 5px 6px;
   width: 100%;
@@ -279,12 +279,46 @@ body {
   outline: none;
   border: 2px solid transparent;
   border-radius: 5px;
-  box-sizing: border-box;
   transition: 0.5s all ease;
 }
 
 .kanban-list__task-input:focus {
   border: 2px solid #0067a3;
+}
+
+.kanban-list__dropdown {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__dropdown-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.kanban-list__dropdown-item::after, .kanban-list__dropdown-item::before {
+  position: absolute;
+  right: 16px;
+  content: "";
+  width: 3px;
+  height: 14px;
+  border-radius: 2px;
+  background-color: #5e6C84;
+}
+
+.kanban-list__dropdown-item::before {
+  transform: rotate(90deg);
+}
+
+.kanban-list__dropdown-item:hover {
+  border: 2px solid #0067a3;
+  cursor: pointer;
 }
 
 .kanban-list .kanban-list__task:last-of-type {
@@ -301,7 +335,7 @@ body {
   border: none;
   outline: none;
   background-color: transparent;
-  color: #5E6C84;
+  color: #5e6C84;
   transition: 0.5s all ease;
 }
 
@@ -319,6 +353,11 @@ body {
 
 .kanban-list__add-card-btn:hover {
   cursor: pointer
+}
+
+.kanban-list__add-card-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 720px) {
