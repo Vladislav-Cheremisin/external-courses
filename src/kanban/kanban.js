@@ -11,7 +11,7 @@ const userPopUpItems = [
 userPopUp.className = 'user-profile__pop-up';
 
 const showUserPopUp = () => {
-  if (!Array.from(userProfile.childNodes).includes(userPopUp)) {
+  if (![...userProfile.childNodes].includes(userPopUp)) {
     userPopUp.innerHTML = userPopUpItems.join('');
     userPopUpBtn.classList.add('user-profile__pop-up-btn_active');
     userProfile.append(userPopUp);
@@ -20,7 +20,7 @@ const showUserPopUp = () => {
 };
 
 const hideUserPopUp = (event) => {
-  if (Array.from(userProfile.childNodes).includes(userPopUp) && event.target.className !== 'user-profile__pop-up-item') {
+  if ([...userProfile.childNodes].includes(userPopUp) && event.target.className !== 'user-profile__pop-up-item') {
     userPopUpBtn.classList.remove('user-profile__pop-up-btn_active');
     userProfile.removeChild(userPopUp);
 
@@ -83,7 +83,7 @@ if (localStorage.getItem('boardMocks') !== null) {
   ];
 }
 
-function setListsBtnsStatus() {
+const setListsBtnsStatus = () => {
   for (let i = 1; i < listsTaskWrappers.length; i += 1) {
     if (listsTaskWrappers[i - 1].childNodes.length === 0) {
       addCardBtns[i].setAttribute('disabled', 'disabled');
@@ -91,9 +91,9 @@ function setListsBtnsStatus() {
       addCardBtns[i].removeAttribute('disabled');
     }
   }
-}
+};
 
-function createLists() {
+const createLists = () => {
   mainWrapper.innerHTML = '';
   localStorage.setItem('boardMocks', JSON.stringify(boardMocks));
 
@@ -112,7 +112,6 @@ function createLists() {
     listTaskWrapper.className = 'kanban-list__task-wrapper';
     listAddCardBtn.className = 'kanban-list__add-card-btn';
     listAddCardBtn.innerText = 'Add Card';
-
     list.append(listHeader);
     list.append(listPopUpBtn);
 
@@ -122,22 +121,20 @@ function createLists() {
       newIssue.className = 'kanban-list__task';
       newIssue.id = issue.id;
       newIssue.innerText = issue.name;
-
       listTaskWrapper.append(newIssue);
     });
 
     list.append(listTaskWrapper);
     list.append(listAddCardBtn);
     mainWrapper.append(list);
-
     addCardBtns = document.querySelectorAll('.kanban-list__add-card-btn');
     listsTaskWrappers = document.querySelectorAll('.kanban-list__task-wrapper');
   });
 
   setListsBtnsStatus();
-}
+};
 
-function refreshLists() {
+const refreshLists = () => {
   localStorage.setItem('boardMocks', JSON.stringify(boardMocks));
 
   for (let i = 0; i < listsTaskWrappers.length; i += 1) {
@@ -151,15 +148,14 @@ function refreshLists() {
       listItem.className = 'kanban-list__task';
       listItem.id = item.id;
       listItem.innerText = item.name;
-
       listsTaskWrappers[index].append(listItem);
     });
   });
 
   setListsBtnsStatus();
-}
+};
 
-function moveListItem(event) {
+const moveListItem = (event) => {
   const currentList = event.target.parentNode;
   const currentListHeader = currentList.childNodes[0].innerText;
 
@@ -175,7 +171,6 @@ function moveListItem(event) {
 
         dropdownItem.className = 'kanban-list__dropdown-item';
         dropdownItem.innerText = issue.name;
-
         currentListDropdown.append(dropdownItem);
       });
 
@@ -192,7 +187,6 @@ function moveListItem(event) {
       };
 
       removeDropdowns(listsTaskWrappers);
-
       currentList.childNodes[2].append(currentListDropdown);
       currentListDropdown.focus();
       currentListDropdown.addEventListener('blur', () => currentListDropdown.remove());
@@ -223,14 +217,13 @@ function moveListItem(event) {
       currentListItems.forEach((element) => element.addEventListener('click', saveMovedItem));
     }
   }
-}
+};
 
-function createNewListItem() {
+const createNewListItem = () => {
   const newListInput = document.createElement('input');
 
   newListInput.className = 'kanban-list__task-input';
   newListInput.setAttribute('type', 'text');
-
   listsTaskWrappers[0].append(newListInput);
   newListInput.focus();
 
@@ -245,21 +238,18 @@ function createNewListItem() {
 
       boardMocks[0].issues.push(newListItem);
       listsTaskWrappers[0].removeChild(newListInput);
-
       refreshLists();
     }
   });
-}
+};
 
-function addListeners() {
+const addListeners = () => {
   addCardBtns[0].addEventListener('click', createNewListItem);
   for (let i = 1; i < addCardBtns.length; i += 1) {
     addCardBtns[i].addEventListener('click', moveListItem);
   }
-}
+};
 
 createLists();
-
 addListeners();
-
 setListsBtnsStatus();
