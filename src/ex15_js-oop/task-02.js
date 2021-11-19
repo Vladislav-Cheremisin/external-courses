@@ -64,6 +64,16 @@ class Flat {
 
     return `This flat use ${result} Kw per hour`;
   }
+
+  findElectrodevice(name) {
+    for (let i = 0; i < this.electordevices.length; i += 1) {
+      if (this.electordevices[i].name === name) {
+        return this.electordevices[i];
+      }
+    }
+
+    return 'There is no this electrodevice in this flat!';
+  }
 }
 
 const myElectroDevices = [
@@ -80,4 +90,6 @@ const myElectroDevices = [
 
 const myFlat = new Flat(113, 2, 'Vladislav', ...myElectroDevices);
 
-myFlat.countPowerUsage();
+myFlat.countPowerUsage(); // This flat use 8.4 Kw per hour
+myFlat.findElectrodevice('Dishwasher'); // KitchenDevice{name: 'Dishwasher', isTurnedOn: true, powerRate: 1800, location: 'kitchen'}
+myFlat.findElectrodevice('PlayStation'); // There is no this electrodevice in this flat!
