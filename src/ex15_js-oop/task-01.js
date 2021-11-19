@@ -30,11 +30,10 @@ const snickers = new ChocoBar('Snickers', 150);
 const haribo = new Jelly('Haribo', 200);
 
 function Present(...sweets) {
-  this.contain = [];
+  this.contain = sweets;
   this.weight = 0;
 
   sweets.forEach((sweet) => {
-    this.contain.push(sweet);
     this.weight += sweet.weight;
   });
 
