@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="task-02.css">
+  <title>Task 02</title>
+</head>
+<body>
+  <main class="main-wrapper">
+    <form action="http://httpbin.org/post" method="post" class="task-form">
+      <label>Debounced
+        <div class="task-form__input-wrapper">
+          <input type="text" class="task-form__input input-debounced">
+        </div>
+      </label>
+      <label>Regular
+        <div class="task-form__input-wrapper">
+          <input type="text" class="task-form__input input-regular">
+        </div>
+      </label>
+    </form>
+  </main>
+  <script async src="task-02.js"></script>  
+</body>
+</html>
