@@ -61,8 +61,13 @@ body {
 }
 
 .user-profile {
+  position: relative;
   display: flex;
   width: 64px;
+}
+
+.user-profile:hover {
+  cursor: pointer;
 }
 
 .user-profile__avatar {
@@ -72,7 +77,7 @@ body {
   background-color: #fff;
 }
 
-.user-profile__pop-up {
+.user-profile__pop-up-btn {
   margin-left: 6px;
   align-self: center;
   width: 12px;
@@ -80,8 +85,50 @@ body {
   transition: 0.5s all ease;
 }
 
-.user-profile__pop-up:hover {
-  cursor: pointer;
+.user-profile__pop-up-btn_active {
+  transform: rotate(180deg);
+}
+
+.user-profile__pop-up {
+  position: absolute;
+  top: 50px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: #FFF;
+}
+
+.user-profile__pop-up a {
+  padding: 10px 0px;
+  font-size: 18px;
+  text-align: center;
+  color: #000;
+  width: 100%;
+  border-bottom: 2px solid #5E6C84;
+  text-decoration: none;
+}
+
+.user-profile__pop-up a:hover {
+  background-color: #e4e4e4;
+}
+
+.user-profile__pop-up a:active {
+  background-color: #b6b6b6;
+}
+
+.user-profile__pop-up a:first-child {
+  border-radius: 10px 10px 0px 0px;
+}
+
+.user-profile a:last-child {
+  border-bottom: none;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.user-profile:hover .user-profile__pop-up-btn {
   opacity: 0.7;
 }
 
@@ -168,6 +215,151 @@ body {
   align-self: center;
 }
 
+.kanban-list {
+  position: relative;
+  padding: 12px 0px 8px 0px;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 282px;
+  min-width: 282px;
+  max-height: calc(100% - 13px);
+  height: fit-content;
+  border-radius: 10px;
+  background-color: #EBECF0;
+}
+
+.kanban-list__header {
+  align-self: flex-start;
+  margin: 0px 0px 12px 12px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.kanban-list__pop-up-btn {
+  position: absolute;
+  right: 8px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__pop-up-btn:hover {
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.kanban-list__task-wrapper {
+  padding: 0;
+  margin: 0;
+  width: calc(100% - 24px);
+  list-style: none;
+  overflow-y: auto;
+}
+
+.kanban-list__task {
+  padding: 7px 8px;
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 21px;
+  border-radius: 5px;
+  background-color: #FFF;
+}
+
+.kanban-list__task-input, .kanban-list__dropdown-item {
+  margin-bottom: 16px;
+  padding: 5px 6px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__task-input:focus {
+  border: 2px solid #0067a3;
+}
+
+.kanban-list__dropdown {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__dropdown-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.kanban-list__dropdown-item::after, .kanban-list__dropdown-item::before {
+  position: absolute;
+  right: 16px;
+  content: "";
+  width: 3px;
+  height: 14px;
+  border-radius: 2px;
+  background-color: #5e6C84;
+}
+
+.kanban-list__dropdown-item::before {
+  transform: rotate(90deg);
+}
+
+.kanban-list__dropdown-item:hover {
+  border: 2px solid #0067a3;
+  cursor: pointer;
+}
+
+.kanban-list .kanban-list__task:last-of-type {
+  margin-bottom: 17px;
+}
+
+.kanban-list__add-card-btn {
+  margin: 0px 0px 0px 11px;
+  padding-left: 20px;
+  position: relative;
+  display: flex;
+  align-self: flex-start;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #5e6C84;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__add-card-btn:hover {
+  opacity: 0.5;
+}
+
+.kanban-list__add-card-btn:before {
+  position: absolute;
+  top: -5px;
+  left: 2px;
+  content: "+";
+  font-size: 26px;
+}
+
+.kanban-list__add-card-btn:hover {
+  cursor: pointer
+}
+
+.kanban-list__add-card-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 720px) {
   .header {
     height: 110px;
@@ -180,12 +372,12 @@ body {
     flex-wrap: wrap;
   }
   .footer__counters-wrapper {
-    margin: 0px;
+    margin: 0;
   }
   .footer__copyrights, .header__logo {
-    margin: 0px;
+    margin: 0;
     display: flex;
     justify-content: center;
-    width: 100%
+    width: 100%;
   }
 }
