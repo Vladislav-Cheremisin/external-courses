@@ -1,0 +1,34 @@
+.kanban-list__dropdown-item {
+  position: relative;
+  margin-bottom: 16px;
+  padding: 5px 6px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__dropdown-item::after, .kanban-list__dropdown-item::before {
+  position: absolute;
+  right: 16px;
+  content: "";
+  width: 3px;
+  height: 14px;
+  border-radius: 2px;
+  background-color: #5e6C84;
+}
+
+.kanban-list__dropdown-item::before {
+  transform: rotate(90deg);
+}
+
+.kanban-list__dropdown-item:hover {
+  border: 2px solid #0067a3;
+  cursor: pointer;
+}

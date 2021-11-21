@@ -1,0 +1,15 @@
+.user-profile__pop-up-btn {
+  margin-left: 6px;
+  align-self: center;
+  width: 12px;
+  height: fit-content;
+  transition: 0.5s all ease;
+}
+
+.user-profile__pop-up-btn_active {
+  transform: rotate(180deg);
+}
+
+.user-profile:hover .user-profile__pop-up-btn {
+  opacity: 0.7;
+}

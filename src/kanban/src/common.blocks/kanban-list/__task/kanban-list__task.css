@@ -1,0 +1,13 @@
+.kanban-list__task {
+  padding: 7px 8px;
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 21px;
+  border-radius: 5px;
+  background-color: #FFF;
+}
+
+.kanban-list .kanban-list__task:last-of-type {
+  margin-bottom: 17px;
+}

@@ -1,0 +1,14 @@
+.kanban-list__pop-up-btn {
+  position: absolute;
+  right: 8px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__pop-up-btn:hover {
+  cursor: pointer;
+  opacity: 0.3;
+}
