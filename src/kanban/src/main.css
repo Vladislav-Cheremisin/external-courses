@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -364,16 +365,20 @@ body {
   .header {
     height: 110px;
   }
+
   .footer {
     height: 110px;
   }
+
   .header, .footer {
     justify-content: center;
     flex-wrap: wrap;
   }
+
   .footer__counters-wrapper {
     margin: 0;
   }
+
   .footer__copyrights, .header__logo {
     margin: 0;
     display: flex;

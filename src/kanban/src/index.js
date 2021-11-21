@@ -1,3 +1,5 @@
+import './main.css';
+
 const userProfile = document.querySelector('.user-profile');
 const userPopUpBtn = document.querySelector('.user-profile__pop-up-btn');
 const userPopUp = document.createElement('div');
