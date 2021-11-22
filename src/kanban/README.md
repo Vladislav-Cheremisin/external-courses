@@ -10,7 +10,7 @@
 
 ## Installation
 
--   Install NodeJS from[official website](https://nodejs.org/en/)
+-   Install NodeJS from [official website](https://nodejs.org/en/)
 -   Clone project files on your pc
 -   Open terminal and install dependencies by using command:
 
