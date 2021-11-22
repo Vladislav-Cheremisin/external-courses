@@ -1,12 +1,12 @@
 const mainWrapper = document.querySelector('.main');
 let addCardBtns = document.querySelectorAll('.kanban-list__add-card-btn');
 let listsTaskWrappers = document.querySelectorAll('.kanban-list__task-wrapper');
-let boardMocks = null;
 
-if (localStorage.getItem('boardMocks') !== null) {
-  boardMocks = JSON.parse(localStorage.getItem('boardMocks'));
-} else {
-  boardMocks = [
+const getBoardMocks = () => {
+  if (localStorage.getItem('boardMocks') !== null) {
+    return JSON.parse(localStorage.getItem('boardMocks'));
+  }
+  return [
     {
       title: 'Backlog',
       issues: [
@@ -44,7 +44,9 @@ if (localStorage.getItem('boardMocks') !== null) {
       ],
     },
   ];
-}
+};
+
+const boardMocks = getBoardMocks();
 
 const setListsBtnsStatus = () => {
   for (let i = 1; i < listsTaskWrappers.length; i += 1) {
@@ -120,66 +122,68 @@ const refreshLists = () => {
 
 const moveListItem = (event) => {
   const currentList = event.target.parentNode;
-  const currentListHeader = currentList.childNodes[0].innerText;
+  let currentListIndex = 0;
 
-  for (let i = 0; i < boardMocks.length; i += 1) {
-    if (boardMocks[i].title === currentListHeader) {
-      const currentListDropdown = document.createElement('ul');
-
-      currentListDropdown.className = 'kanban-list__dropdown';
-      currentListDropdown.setAttribute('tabindex', '-1');
-
-      boardMocks[i - 1].issues.forEach((issue) => {
-        const dropdownItem = document.createElement('li');
-
-        dropdownItem.className = 'kanban-list__dropdown-item';
-        dropdownItem.innerText = issue.name;
-        currentListDropdown.append(dropdownItem);
-      });
-
-      const removeDropdowns = (wrappers) => {
-        wrappers.forEach((element) => {
-          element.childNodes.forEach((child) => {
-            if (child.classList.contains('kanban-list__dropdown')) {
-              const dropdownToRemove = element.querySelector('.kanban-list__dropdown');
-
-              dropdownToRemove.remove();
-            }
-          });
-        });
-      };
-
-      removeDropdowns(listsTaskWrappers);
-      currentList.childNodes[2].append(currentListDropdown);
-      currentListDropdown.focus();
-      currentListDropdown.addEventListener('blur', () => currentListDropdown.remove());
-
-      const currentListItems = currentListDropdown.childNodes;
-
-      const saveMovedItem = (e) => {
-        const movedItemText = e.target.innerText;
-        const currentMockArr = boardMocks[i].issues;
-        const prevMockArr = boardMocks[i - 1].issues;
-        const deleteItemIndex = prevMockArr.findIndex((element) => element.name === movedItemText);
-        const objForBoardMocks = {
-          id: `task${boardMocks[i].issues.length + 1}`,
-          name: movedItemText,
-        };
-
-        currentMockArr.push(objForBoardMocks);
-        prevMockArr.splice(deleteItemIndex, 1);
-
-        for (let n = 0; n < prevMockArr.length; n += 1) {
-          prevMockArr[n].id = `task${n + 1}`;
-        }
-
-        refreshLists();
-        setListsBtnsStatus();
-      };
-
-      currentListItems.forEach((element) => element.addEventListener('click', saveMovedItem));
+  mainWrapper.childNodes.forEach((node, index) => {
+    if (node === currentList) {
+      currentListIndex = index;
     }
-  }
+  });
+
+  const currentListDropdown = document.createElement('ul');
+
+  currentListDropdown.className = 'kanban-list__dropdown';
+  currentListDropdown.setAttribute('tabindex', '-1');
+
+  boardMocks[currentListIndex - 1].issues.forEach((issue) => {
+    const dropdownItem = document.createElement('li');
+
+    dropdownItem.className = 'kanban-list__dropdown-item';
+    dropdownItem.innerText = issue.name;
+    currentListDropdown.append(dropdownItem);
+  });
+
+  const removeDropdowns = (wrappers) => {
+    wrappers.forEach((element) => {
+      element.childNodes.forEach((child) => {
+        if (child.classList.contains('kanban-list__dropdown')) {
+          const dropdownToRemove = element.querySelector('.kanban-list__dropdown');
+
+          dropdownToRemove.remove();
+        }
+      });
+    });
+  };
+
+  removeDropdowns(listsTaskWrappers);
+  currentList.childNodes[2].append(currentListDropdown);
+  currentListDropdown.focus();
+  currentListDropdown.addEventListener('blur', () => currentListDropdown.remove());
+
+  const currentListItems = currentListDropdown.childNodes;
+
+  const saveMovedItem = (e) => {
+    const movedItemText = e.target.innerText;
+    const currentMockArr = boardMocks[currentListIndex].issues;
+    const prevMockArr = boardMocks[currentListIndex - 1].issues;
+    const deleteItemIndex = prevMockArr.findIndex((element) => element.name === movedItemText);
+    const objForBoardMocks = {
+      id: `task${boardMocks[currentListIndex].issues.length + 1}`,
+      name: movedItemText,
+    };
+
+    currentMockArr.push(objForBoardMocks);
+    prevMockArr.splice(deleteItemIndex, 1);
+
+    for (let n = 0; n < prevMockArr.length; n += 1) {
+      prevMockArr[n].id = `task${n + 1}`;
+    }
+
+    refreshLists();
+    setListsBtnsStatus();
+  };
+
+  currentListItems.forEach((element) => element.addEventListener('click', saveMovedItem));
 };
 
 const createNewListItem = () => {
@@ -214,6 +218,8 @@ const addListeners = () => {
 };
 
 export {
+  mainWrapper,
+  boardMocks,
   setListsBtnsStatus,
   createLists,
   addListeners,

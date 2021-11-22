@@ -3,6 +3,7 @@
 @import url('./__task-wrapper/kanban-list__task-wrapper.css');
 @import url('./__task/kanban-list__task.css');
 @import url('./__task-input/kanban-list__task-input.css');
+@import url('./__header-input/kanban-list__header-input.css');
 @import url('./__dropdown/kanban-list__dropdown.css');
 @import url('./__dropdown-item/kanban-list__dropdown-item.css');
 @import url('./__add-card-btn/kanban-list__add-card-btn.css');

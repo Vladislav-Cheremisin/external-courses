@@ -12,11 +12,19 @@ import {
   addListeners,
 } from './common.blocks/main/main';
 
+import {
+  createNewList,
+} from './common.blocks/header/__nav/header__nav';
+
+const createListBtn = document.querySelector('.create-list-btn');
+
 userProfile.addEventListener('click', showUserPopUp);
 document.body.addEventListener('mouseup', hideUserPopUp);
-
-/* Task 13 */
 
 createLists();
 addListeners();
 setListsBtnsStatus();
+
+/* Task 18 */
+
+createListBtn.addEventListener('click', createNewList);
