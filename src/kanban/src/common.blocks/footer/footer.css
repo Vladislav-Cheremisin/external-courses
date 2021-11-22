@@ -1,0 +1,24 @@
+@import url('./__counters-wrapper/footer__counters-wrapper.css');
+@import url('./__counter-active/footer__counter-active.css');
+@import url('./__counter-finished/footer__counter-finished.css');
+@import url('./__copyrights/footer__copyrights.css');
+@import url('./__copyright-name/footer__copyright-name.css');
+@import url('./__copyright-year/footer__copyright-year.css');
+
+.footer {
+  display: flex;
+  flex-shrink: 0;
+  height: 55px;
+  color: #fff;
+  font-size: 18px;
+  justify-content: space-between;
+  background-color: #0067a3;
+}
+
+@media screen and (max-width: 720px) {
+  .footer {
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 110px;
+  }
+}

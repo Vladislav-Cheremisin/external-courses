@@ -1,0 +1,33 @@
+.create-list-btn__plus {
+  position: relative;
+  display: flex;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #000;
+  transition: 0.5s all ease;
+}
+
+.create-list-btn__plus::before, .create-list-btn__plus::after {
+  position: absolute;
+  top: 4px;
+  left: 9px;
+  content: "";
+  width: 4px;
+  height: 14px;
+  border-radius: 2px;
+  background-color: #fff;
+  transition: 0.5s all ease;
+}
+
+.create-list-btn__plus::after {
+  transform: rotate(90deg);
+}
+
+.create-list-btn:hover .create-list-btn__plus {
+  background-color: #fff;
+}
+
+.create-list-btn:hover .create-list-btn__plus::after, .create-list-btn:hover .create-list-btn__plus::before {
+  background-color: #000;
+}
