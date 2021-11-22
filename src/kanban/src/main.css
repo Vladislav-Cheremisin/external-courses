@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('./common.blocks/header/header.css');
-@import url('./common.blocks/board/board.css');
+@import url('./common.blocks/main/main.css');
 @import url('./common.blocks/footer/footer.css');
 
 * {
