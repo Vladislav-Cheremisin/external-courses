@@ -7,7 +7,7 @@
   width: 332px;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 780px) {
   .footer__counters-wrapper {
     margin: 0;
   }

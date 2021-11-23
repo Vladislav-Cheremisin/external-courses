@@ -1,0 +1,31 @@
+.kanban-list__pop-up {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 30px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  font-size: 18px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.kanban-list__pop-up li {
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  list-style: none;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__pop-up li:hover {
+  cursor: pointer;
+  background-color: #e4e4e4;
+}

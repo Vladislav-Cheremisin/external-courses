@@ -1,3 +1,6 @@
+import { showKanbanListPopUp } from '../kanban-list/__pop-up-btn/kanban-list__pop-up-btn';
+import { addMainTooltip } from './__tooltip/main__tooltip';
+
 const mainWrapper = document.querySelector('.main');
 let addCardBtns = document.querySelectorAll('.kanban-list__add-card-btn');
 let listsTaskWrappers = document.querySelectorAll('.kanban-list__task-wrapper');
@@ -46,7 +49,7 @@ const getBoardMocks = () => {
   ];
 };
 
-const boardMocks = getBoardMocks();
+let boardMocks = getBoardMocks();
 
 const setListsBtnsStatus = () => {
   for (let i = 1; i < listsTaskWrappers.length; i += 1) {
@@ -211,16 +214,30 @@ const createNewListItem = () => {
 };
 
 const addListeners = () => {
-  addCardBtns[0].addEventListener('click', createNewListItem);
-  for (let i = 1; i < addCardBtns.length; i += 1) {
-    addCardBtns[i].addEventListener('click', moveListItem);
+  if (mainWrapper.childNodes.length !== 0) {
+    addCardBtns[0].addEventListener('click', createNewListItem);
+    for (let i = 1; i < addCardBtns.length; i += 1) {
+      addCardBtns[i].addEventListener('click', moveListItem);
+    }
+    mainWrapper.childNodes.forEach((child) => child.childNodes[1].addEventListener('click', showKanbanListPopUp));
   }
+};
+
+const changeBoardMocksAndRefresh = (newBoardMocks) => {
+  boardMocks = newBoardMocks;
+
+  createLists();
+  addListeners();
+  setListsBtnsStatus();
+  addMainTooltip();
 };
 
 export {
   mainWrapper,
-  boardMocks,
+  changeBoardMocksAndRefresh,
   setListsBtnsStatus,
   createLists,
   addListeners,
+  createNewListItem,
+  moveListItem,
 };

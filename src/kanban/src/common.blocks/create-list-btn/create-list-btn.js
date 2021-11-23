@@ -1,12 +1,10 @@
 import {
   mainWrapper,
-  boardMocks,
-  setListsBtnsStatus,
-  createLists,
-  addListeners,
-} from '../../main/main';
+  changeBoardMocksAndRefresh,
+} from '../main/main';
 
 const createNewList = () => {
+  const newBoardMocks = JSON.parse(localStorage.getItem('boardMocks'));
   const newListData = {
     title: 'New List',
     issues: [
@@ -17,11 +15,9 @@ const createNewList = () => {
     ],
   };
 
-  boardMocks.unshift(newListData);
+  newBoardMocks.unshift(newListData);
 
-  createLists();
-  addListeners();
-  setListsBtnsStatus();
+  changeBoardMocksAndRefresh(newBoardMocks);
 
   const newList = mainWrapper.childNodes[0];
   const newListHeaderInput = document.createElement('input');
@@ -34,18 +30,16 @@ const createNewList = () => {
   newListHeaderInput.focus();
 
   const saveNewList = (value) => {
-    boardMocks[0].title = value;
-    createLists();
-    addListeners();
-    setListsBtnsStatus();
+    newBoardMocks[0].title = value;
+
+    changeBoardMocksAndRefresh(newBoardMocks);
   };
 
   const removeUnnamedNewList = (event) => {
     if (event.target.value === '') {
-      boardMocks.shift();
-      createLists();
-      addListeners();
-      setListsBtnsStatus();
+      newBoardMocks.shift();
+
+      changeBoardMocksAndRefresh(newBoardMocks);
     } else {
       saveNewList(event.target.value);
     }

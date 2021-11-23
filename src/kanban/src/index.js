@@ -14,7 +14,9 @@ import {
 
 import {
   createNewList,
-} from './common.blocks/header/__nav/header__nav';
+} from './common.blocks/create-list-btn/create-list-btn';
+
+import { addMainTooltip } from './common.blocks/main/__tooltip/main__tooltip';
 
 const createListBtn = document.querySelector('.create-list-btn');
 
@@ -24,7 +26,6 @@ document.body.addEventListener('mouseup', hideUserPopUp);
 createLists();
 addListeners();
 setListsBtnsStatus();
-
-/* Task 18 */
+addMainTooltip();
 
 createListBtn.addEventListener('click', createNewList);
