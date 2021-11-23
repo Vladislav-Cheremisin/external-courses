@@ -1,5 +1,7 @@
 import { showKanbanListPopUp } from '../kanban-list/__pop-up-btn/kanban-list__pop-up-btn';
 import { addMainTooltip } from './__tooltip/main__tooltip';
+import { setActiveCounter } from '../footer/__counter-active/footer__counter-active';
+import { setFinishedCounter } from '../footer/__counter-finished/footer__counter-finished';
 
 const mainWrapper = document.querySelector('.main');
 let addCardBtns = document.querySelectorAll('.kanban-list__add-card-btn');
@@ -184,6 +186,8 @@ const moveListItem = (event) => {
 
     refreshLists();
     setListsBtnsStatus();
+    setActiveCounter();
+    setFinishedCounter();
   };
 
   currentListItems.forEach((element) => element.addEventListener('click', saveMovedItem));
@@ -209,6 +213,8 @@ const createNewListItem = () => {
       boardMocks[0].issues.push(newListItem);
       listsTaskWrappers[0].removeChild(newListInput);
       refreshLists();
+      setActiveCounter();
+      setFinishedCounter();
     }
   });
 };
@@ -230,6 +236,8 @@ const changeBoardMocksAndRefresh = (newBoardMocks) => {
   addListeners();
   setListsBtnsStatus();
   addMainTooltip();
+  setActiveCounter();
+  setFinishedCounter();
 };
 
 export {
