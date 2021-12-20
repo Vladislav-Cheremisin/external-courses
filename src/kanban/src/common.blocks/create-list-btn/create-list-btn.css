@@ -1,0 +1,23 @@
+@import url('./__plus/create-list__btn__plus.css');
+
+.create-list-btn {
+  padding-right: 15px;
+  margin-left: 6px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 181px;
+  height: 33px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 0px;
+  outline: none;
+  background-color: #fff;
+  transition: 0.5s all ease;
+}
+
+.create-list-btn:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: #000;
+}

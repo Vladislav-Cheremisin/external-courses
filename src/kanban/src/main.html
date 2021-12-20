@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <a href="kanban.html" class="header__logo">
+          <img src="assets/kanban-logo.png" alt="kanban" />
+          <span>Awesome Kanban Board</span>
+        </a>
+        <nav class="header__nav">
+          <button class="create-list-btn">
+            <span class="create-list-btn__plus"></span>
+            <span>Create new list</span>
+          </button>
+          <div class="user-profile">
+            <img src="assets/user-avatar.png" alt="avatar" class="user-profile__avatar" />
+            <img src="assets/popup-icon.png"  alt="open popup" class="user-profile__pop-up-btn" />
+          </div>
+        </nav>
+      </header>
+      <main class="main"></main>
+      <footer class="footer">
+        <div class="footer__counters-wrapper">
+          <span class="footer__counter">Active tasks:<span class="footer__counter-active">&lt;N&gt;</span></span>
+          <span class="footer__counter">Finished tasks:<span class="footer__counter-finished">&lt;M&gt;</span></span>
+        </div>
+        <span class="footer__copyrights">Kanban board by<span class="footer__copyright-name">&lt;NAME&gt;</span>,<span class="footer__copyright-year">&lt;YEAR&gt;</span></span>
+      </footer>
+    </div>
+  </body>
+</html>

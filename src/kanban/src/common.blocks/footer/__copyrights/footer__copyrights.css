@@ -1,0 +1,13 @@
+.footer__copyrights {
+  margin-right: 25px;
+  align-self: center;
+}
+
+@media screen and (max-width: 720px) {
+  .footer__copyrights {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}

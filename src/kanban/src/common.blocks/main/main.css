@@ -1,0 +1,9 @@
+@import url('../kanban-list/kanban-list.css');
+
+.main {
+  padding: 19px 0px 19px 19px;
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  background-color: #0079bf;
+}

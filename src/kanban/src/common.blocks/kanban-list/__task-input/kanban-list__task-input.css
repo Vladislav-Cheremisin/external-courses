@@ -1,0 +1,15 @@
+.kanban-list__task-input {
+  margin-bottom: 16px;
+  padding: 5px 6px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: 0.5s all ease;
+}
+
+.kanban-list__task-input:focus {
+  border: 2px solid #0067a3;
+}
