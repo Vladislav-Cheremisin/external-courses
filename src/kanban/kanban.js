@@ -36,51 +36,53 @@ document.body.addEventListener('mouseup', hideUserPopUp);
 /* Task 13 */
 
 const mainWrapper = document.querySelector('.main');
+const boardMocks = [
+  {
+    title: 'Backlog',
+    issues: [
+      {
+        id: 'task1',
+        name: 'backlog task example',
+      },
+    ],
+  },
+  {
+    title: 'Ready',
+    issues: [
+      {
+        id: 'task1',
+        name: 'ready task example',
+      },
+    ],
+  },
+  {
+    title: 'In Progress',
+    issues: [
+      {
+        id: 'task1',
+        name: 'in progress task example',
+      },
+    ],
+  },
+  {
+    title: 'Finished',
+    issues: [
+      {
+        id: 'task1',
+        name: 'finished task example',
+      },
+    ],
+  },
+];
+
 let addCardBtns = document.querySelectorAll('.kanban-list__add-card-btn');
 let listsTaskWrappers = document.querySelectorAll('.kanban-list__task-wrapper');
-let boardMocks = null;
+let boardData = null;
 
-if (localStorage.getItem('boardMocks') !== null) {
-  boardMocks = JSON.parse(localStorage.getItem('boardMocks'));
+if (localStorage.getItem('boardData') !== null) {
+  boardData = JSON.parse(localStorage.getItem('boardData'));
 } else {
-  boardMocks = [
-    {
-      title: 'Backlog',
-      issues: [
-        {
-          id: 'task1',
-          name: 'backlog task example',
-        },
-      ],
-    },
-    {
-      title: 'Ready',
-      issues: [
-        {
-          id: 'task1',
-          name: 'ready task example',
-        },
-      ],
-    },
-    {
-      title: 'In Progress',
-      issues: [
-        {
-          id: 'task1',
-          name: 'in progress task example',
-        },
-      ],
-    },
-    {
-      title: 'Finished',
-      issues: [
-        {
-          id: 'task1',
-          name: 'finished task example',
-        },
-      ],
-    },
-  ];
+  boardData = boardMocks;
 }
 
 const setListsBtnsStatus = () => {
@@ -95,9 +97,9 @@ const setListsBtnsStatus = () => {
 
 const createLists = () => {
   mainWrapper.innerHTML = '';
-  localStorage.setItem('boardMocks', JSON.stringify(boardMocks));
+  localStorage.setItem('boardData', JSON.stringify(boardData));
 
-  boardMocks.forEach((element) => {
+  boardData.forEach((element) => {
     const list = document.createElement('section');
     const listHeader = document.createElement('h1');
     const listPopUpBtn = document.createElement('button');
@@ -135,13 +137,13 @@ const createLists = () => {
 };
 
 const refreshLists = () => {
-  localStorage.setItem('boardMocks', JSON.stringify(boardMocks));
+  localStorage.setItem('boardData', JSON.stringify(boardData));
 
   for (let i = 0; i < listsTaskWrappers.length; i += 1) {
     listsTaskWrappers[i].innerHTML = '';
   }
 
-  boardMocks.forEach((element, index) => {
+  boardData.forEach((element, index) => {
     element.issues.forEach((item) => {
       const listItem = document.createElement('li');
 
@@ -159,14 +161,14 @@ const moveListItem = (event) => {
   const currentList = event.target.parentNode;
   const currentListHeader = currentList.childNodes[0].innerText;
 
-  for (let i = 0; i < boardMocks.length; i += 1) {
-    if (boardMocks[i].title === currentListHeader) {
+  for (let i = 0; i < boardData.length; i += 1) {
+    if (boardData[i].title === currentListHeader) {
       const currentListDropdown = document.createElement('ul');
 
       currentListDropdown.className = 'kanban-list__dropdown';
       currentListDropdown.setAttribute('tabindex', '-1');
 
-      boardMocks[i - 1].issues.forEach((issue) => {
+      boardData[i - 1].issues.forEach((issue) => {
         const dropdownItem = document.createElement('li');
 
         dropdownItem.className = 'kanban-list__dropdown-item';
@@ -195,15 +197,15 @@ const moveListItem = (event) => {
 
       const saveMovedItem = (e) => {
         const movedItemText = e.target.innerText;
-        const currentMockArr = boardMocks[i].issues;
-        const prevMockArr = boardMocks[i - 1].issues;
+        const currentMockArr = boardData[i].issues;
+        const prevMockArr = boardData[i - 1].issues;
         const deleteItemIndex = prevMockArr.findIndex((element) => element.name === movedItemText);
-        const objForBoardMocks = {
-          id: `task${boardMocks[i].issues.length + 1}`,
+        const objForBoardData = {
+          id: `task${boardData[i].issues.length + 1}`,
           name: movedItemText,
         };
 
-        currentMockArr.push(objForBoardMocks);
+        currentMockArr.push(objForBoardData);
         prevMockArr.splice(deleteItemIndex, 1);
 
         for (let n = 0; n < prevMockArr.length; n += 1) {
@@ -232,11 +234,11 @@ const createNewListItem = () => {
       listsTaskWrappers[0].removeChild(newListInput);
     } else {
       const newListItem = {
-        id: `task${boardMocks[0].issues.length + 1}`,
+        id: `task${boardData[0].issues.length + 1}`,
         name: newListInput.value,
       };
 
-      boardMocks[0].issues.push(newListItem);
+      boardData[0].issues.push(newListItem);
       listsTaskWrappers[0].removeChild(newListInput);
       refreshLists();
     }
