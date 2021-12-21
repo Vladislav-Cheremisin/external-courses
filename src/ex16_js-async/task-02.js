@@ -14,18 +14,18 @@ const debounce = (func, timer) => function debounced(args) {
 
 const repeatInputValue = (event) => {
   const inputWrapper = event.target.parentNode;
+  const inputValue = event.target.value;
   const oldInputRepeater = inputWrapper.querySelector('.task-form__input-repeater');
 
   if (oldInputRepeater) {
-    inputWrapper.removeChild(oldInputRepeater);
+    oldInputRepeater.innerText = inputValue;
+  } else {
+    const newElement = document.createElement('span');
+
+    newElement.classList.add('task-form__input-repeater');
+    newElement.innerText = inputValue;
+    inputWrapper.appendChild(newElement);
   }
-
-  const inputValue = event.target.value;
-  const newElement = document.createElement('span');
-
-  newElement.classList.add('task-form__input-repeater');
-  newElement.innerText = inputValue;
-  inputWrapper.appendChild(newElement);
 };
 
 const debouncedRepeatInputValue = debounce(repeatInputValue, 1500);
