@@ -43,7 +43,9 @@ function Calculator() {
   this.fetchData = (callback) => {
     if (callback) {
       this.result = 500;
-      callback(this.result);
+      setTimeout(() => {
+        callback(this.result);
+      }, 0);
     }
 
     return this;

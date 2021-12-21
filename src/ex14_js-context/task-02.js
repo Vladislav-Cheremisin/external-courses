@@ -3,7 +3,7 @@ function Hangman(word) {
   this.hiddenWord = '_'.repeat(this.word.length).split('');
   this.incorrectLetters = [];
   this.attempts = 6;
-  this.guess = (letter) => {
+  this.__proto__.guess = (letter) => {
     if (this.word.includes(letter.toLowerCase())) {
       this.word.split('').forEach((element, index) => {
         if (element === letter.toLowerCase()) {
@@ -25,11 +25,11 @@ function Hangman(word) {
     this.attempts -= 1;
     return `wrong letter, errors left ${this.attempts} | ${this.incorrectLetters.join(',')}`;
   };
-  this.getGuessedString = () => this.hiddenWord.join('');
-  this.getErrorsLeft = () => this.attempts;
-  this.getWrongSymbols = () => this.incorrectLetters;
-  this.getStatus = () => `${this.hiddenWord.join('')} | errors left ${this.attempts}`;
-  this.startAgain = (newWord) => {
+  this.__proto__.getGuessedString = () => this.hiddenWord.join('');
+  this.__proto__.getErrorsLeft = () => this.attempts;
+  this.__proto__.getWrongSymbols = () => this.incorrectLetters;
+  this.__proto__.getStatus = () => `${this.hiddenWord.join('')} | errors left ${this.attempts}`;
+  this.__proto__.startAgain = (newWord) => {
     this.word = newWord;
     this.hiddenWord = '_'.repeat(this.word.length).split('');
     this.incorrectLetters = [];
