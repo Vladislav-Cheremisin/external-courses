@@ -1,0 +1,8 @@
+.kanban-list__dropdown {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  transition: 0.5s all ease;
+}

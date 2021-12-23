@@ -1,0 +1,14 @@
+.footer__counters-wrapper {
+  margin-left: 67px;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 332px;
+}
+
+@media screen and (max-width: 780px) {
+  .footer__counters-wrapper {
+    margin: 0;
+  }
+}

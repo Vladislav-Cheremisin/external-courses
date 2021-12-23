@@ -1,0 +1,7 @@
+.kanban-list__header {
+  align-self: flex-start;
+  margin: 0px 0px 12px 12px;
+  width: 80%;
+  font-size: 18px;
+  font-weight: normal;
+}
